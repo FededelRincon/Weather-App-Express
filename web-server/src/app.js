@@ -2,12 +2,19 @@ const path = require('path')
 const express = require('express')
 
 const app = express()
-const publicDirectoryPath = path.join(__dirname, '../public')
 
+// Define paths for Express config
+const publicDirectoryPath = path.join(__dirname, '../public') //lo use para agregar css y js antes de hbs
+const viewsPath = path.join(__dirname, '../templates') //lo uso para meter todo en la carpeta "templates" y no la "views" que es la por defecto
+
+//Setup handlebars engine and views location
 app.set('view engine','hbs') //other alternative its ejs(bootcamp)
+app.set('views', viewsPath)
+
+//Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
-//http://localhost:3000/
-//http://localhost:3000/about
+    //http://localhost:3000/
+    //http://localhost:3000/about
 
 app.get('', (req, res) => {
     res.render('index', {
