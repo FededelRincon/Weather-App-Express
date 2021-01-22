@@ -73,3 +73,7 @@ app.listen(3000, () => {
 //     res.send('string cualquiera')
 // })
 //si pongo res.render (renderiza la pagina)
+
+
+//////////////////// NODEMON
+//nodemon src/app.js -e js, hbs, css
