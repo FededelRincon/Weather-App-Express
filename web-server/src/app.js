@@ -4,13 +4,31 @@ const express = require('express')
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 
+app.set('view engine','hbs') //other alternative its ejs(bootcamp)
 app.use(express.static(publicDirectoryPath))
 //http://localhost:3000/
-//http://localhost:3000/help  //estas funcionan xq puse el path mirando a esta carpeta, y existen los html en ese lugar.
 //http://localhost:3000/about
-//http://localhost:3000/weather
 
+app.get('', (req, res) => {
+    res.render('index', {
+        title: 'Weather',
+        name: 'FDR'
+    })
+})
 
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About me',
+        name: 'FDR'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title:'Help ejs',
+        name:'FDR'
+    })
+})
 
 app.get('/weather', (req, res) => {
     res.send({
