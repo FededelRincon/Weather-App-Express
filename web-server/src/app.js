@@ -1,15 +1,18 @@
 const path = require('path')
 const express = require('express')
+const hbs = require('hbs')
 
 const app = express()
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public') //lo use para agregar css y js antes de hbs
-const viewsPath = path.join(__dirname, '../templates') //lo uso para meter todo en la carpeta "templates" y no la "views" que es la por defecto
+const viewsPath = path.join(__dirname, '../templates/views') //lo usa res.render para buscar todo en la carpeta "templates/views" y no la "views" que es la por defecto
+const partialsPath = path.join(__dirname, '../templates/partials') //lo uso para q los {{<footer}} lo busquen por aca
 
 //Setup handlebars engine and views location
 app.set('view engine','hbs') //other alternative its ejs(bootcamp)
 app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
 
 //Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
@@ -32,8 +35,9 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Help ejs',
-        name:'FDR'
+        helpText: 'This is the important help',
+        title: 'Help',
+        name: 'FDR'
     })
 })
 
