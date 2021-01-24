@@ -2,12 +2,15 @@ body {
     color: #333333;
     font-family: Georgia, 'Times New Roman', Times, serif;
     max-width: 650px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 0 16px;
 
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 90vh;
+    text-align: center;
+
+    background-color: rgba(255, 255, 255, 0.938);
 }
 
 .main-content {
@@ -17,8 +20,7 @@ body {
 footer {
     color: #888888;
     border-top: 1px solid #eeeeee;
-    margin-top: 16px;
-    padding: 16px;
+    margin-top: 8px;
 }
 
 header {
@@ -27,6 +29,7 @@ header {
 }
 
 h1 {
+    color: rgb(45, 85, 117);
     font-size: 64px;
     margin-bottom: 16px;
 }
@@ -49,7 +52,23 @@ input {
 button {
     cursor: pointer;
     border: 1px solid #888888;
-    background-color: #888888;
+    background-color: steelblue;
     color: white;
     padding: 8px;
 }
+
+button:hover {
+    background-color: seagreen;
+}
+
+#message-1{
+    padding: 16px;
+    color: rgb(45, 85, 117);
+}
+
+#message-2{
+    padding: 8px;
+    color: rgb(45, 85, 117);
+}
+
+

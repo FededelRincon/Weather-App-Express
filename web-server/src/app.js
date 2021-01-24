@@ -35,10 +35,9 @@ app.get('/about', (req, res) => {
     })
 })
 
-app.get('/help', (req, res) => {
-    res.render('help', {
-        helpText: 'This is the important help',
-        title: 'Help',
+app.get('/howto', (req, res) => {
+    res.render('howto', {
+        title: 'How to',
         name: 'FDR'
     })
 })
