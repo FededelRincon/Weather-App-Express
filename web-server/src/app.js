@@ -52,7 +52,7 @@ app.get('/weather', (req, res) => {
     }
     //http://localhost:3000/weather?address=Boston
 
-    geocode(queryAddress, (error, { latitude, longitude, location }) => {
+    geocode(queryAddress, (error, { latitude, longitude, location } = {}) => {
         if(error) {
             return res.send({ error })
         }
